@@ -1,0 +1,441 @@
+/* Reset + base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'SVN-Gilroy', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden; /* Ngăn chặn nội dung tràn ra ngoài */
+}
+
+/* Topbar */
+.topbar {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* topbar không sticky */
+}
+.topbar .lang-btn img {
+  width: 20px;
+  height: 14px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.topbar .top-links a {
+  margin-left: 12px;
+  text-decoration: none;
+  color: hsl(0, 18%, 92%);
+}
+
+/* Header */
+header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+
+
+.logo img {
+  height: 50px;
+}
+.navbar {
+  position: relative;
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  max-width: 100%; /* Giới hạn chiều rộng của nav-menu */
+}
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.nav-menu li a.active {
+  color: #007bff; /* hoặc màu nổi bật bạn muốn */
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Mobile nav icon */
+.mobile-nav-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 200%;
+}
+
+.carousel-slide {
+  width: 100vw;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* đảm bảo ảnh phủ hết vùng */
+}
+
+/* Nút điều hướng */
+.hero-carousel button.prev,
+.hero-carousel button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 28px;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+}
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.carousel-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.carousel-dots .dot.active {
+  background: hsl(0, 0%, 95%);
+}
+
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  body {
+    font-size: 14px; /* Điều chỉnh kích thước chữ cho di động */
+  }
+
+  .navbar {
+    padding: 10px; /* Điều chỉnh padding cho navbar */
+  }
+
+  .nav-menu {
+    gap: 10px; /* Giảm khoảng cách giữa các mục trong nav-menu */
+  }
+}
+
+
+
+/*Member */
+
+.partner {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff;
+}
+.partner h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1c1c1c;
+  margin-bottom: 10px;
+}
+.partner .subtext {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cột mặc định */
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+@media (max-width: 768px) {
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/*Khi số lượng lên nhiều thì chuyển thành 2
+@media (max-width: 768px) {
+  .partner-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+*/
+
+.partner-item {
+  text-align: center;
+}
+.partner-item img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  border: 4px solid #eee;
+}
+.partner-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.partner-item p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* ===============================
+   FLOATING CONTACT ICONS
+================================= */
+.floating-contact {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+  animation: fadeInRight 1s ease forwards;
+}
+
+.floating-contact .contact-btn img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-contact .contact-btn img:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Fade in animation */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+ /* ====================================
+     PROJECT SECTION
+  ==================================== */
+  section {
+    background-color: #005A99;
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .section-desc {
+    color: white;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  .projects {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .project {
+    background-color: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .project:hover {
+    transform: translateY(-5px);
+  }
+  
+  .project .row {
+    margin: 0;
+  }
+  
+  .img_npo {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  .img_npo img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .project-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .project-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #ffffff;
+    text-align: justify;
+  }
+  
+  @media (max-width: 768px) {
+    .project .px-5 {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  
+    .project-name {
+      font-size: 18px;
+    }
+  
+    .project-desc {
+      font-size: 14px;
+    }
+  }
+/*footer*/  
+  .footer {
+    background: #002a5c;
+    color: white;
+    padding: 40px 20px;
+  }
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+  }
+  .footer-col {
+    flex: 1 1 300px;
+  }
+  .footer-logo {
+    height: 50px;
+    margin-bottom: 8px;
+  }
+  .footer-sub {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  .footer-col h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .social-icons a img {
+    width: 24px;
+    margin-right: 12px;
+  }
+  .fb-box img {
+    width: 100%;
+    max-width: 280px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+  }
+  .subscribe-form {
+    display: flex;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+    max-width: 300px;
+  }
+  .subscribe-form input {
+    border: none;
+    padding: 10px;
+    flex: 1;
+  }
+  .subscribe-form button {
+    background: #ffc107;
+    border: none;
+    padding: 0 12px;
+    cursor: pointer;
+  }
+  .subscribe-form button img {
+    width: 18px;
+  }
+  .footer-privacy {
+    font-size: 13px;
+    margin-top: 16px;
+  }
+  .footer-privacy a {
+    color: #ccc;
+    text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+

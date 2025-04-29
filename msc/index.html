@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PACE Homepage</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="lang-btn"><img src="https://cdn-icons-png.flaticon.com/512/197/197473.png" alt="vi"> </button>
+      <button class="lang-btn"><img src="https://cdn-icons-png.flaticon.com/512/197/197374.png" alt="en"> </button>
+    </div>
+    <div class="topbar-right">
+        <a href="profile.html" target="_blank">
+            <button class="profile-btn">Đăng Nhập</button>
+          </a>
+          
+      <a href="profile.html" target="_blank">
+        <button class="profile-btn">Đăng Ký</button>
+      </a>
+
+      <a href="profile.html" target="_blank">
+        <button class="profile-btn">Hồ sơ năng lực</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Header + Navbar -->
+  <header id="header">
+    <div class="logo">
+      <img src="assets/logo/logo.png" alt="PACE Logo" />
+    </div>
+    <nav class="navbar">
+      <div class="mobile-nav-toggle" id="mobile-toggle">
+        <i class="bi bi-list"></i>
+      </div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#gioi-thieu">GIỚI THIỆU</a></li>
+        <li><a href="#dao-tao">ĐÀO TẠO</a></li>
+        <li><a href="#du-an">DỰ ÁN</a></li>
+        <li><a href="#mc">MENTORS & COACHES</a></li>
+        <li><a href="#msc">MSCer</a></li>
+        <li><a href="#msc">ĐỒNG HÀNH</a></li>
+        <li><a href="#lh">LIÊN HỆ</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+   <!-- icon-->
+   <div class="floating-contact">
+    <a href="https://www.facebook.com/msc.edu.vn" class="contact-btn fb-btn" target="_blank">
+      <img src="assets/logo/fb.png" alt="Facebook">
+    </a>
+    <a href="#" class="contact-btn call-btn">
+      <img src="assets/logo/ytb copy.png" alt="Youtube">
+    </a>
+    <a href="#" class="contact-btn zalo-btn" target="_blank">
+      <img src="assets/logo/tiktok.png" alt="TikTok">
+    </a>
+    <a href="https://zalo.me/g/acumou501" class="contact-btn fb-btn" target="_blank">
+      <img src="assets/logo/zalo.webp" alt="Zalo">
+    </a>
+  </div>
+
+  <!-- Hero Carousel -->
+  <section class="hero-carousel">
+    <div class="carousel-container">
+      <div class="carousel-slide active">
+        <img src="assets/banner-hoc-vien-quan-ly-pace.webp" alt="Slide 1" />
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/banner-hoc-vien-quan-ly-pace.webp" alt="Slide 2" />
+      </div>
+    </div>
+  
+    <!-- Nút điều hướng -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  
+    <!-- Indicators -->
+    <div class="carousel-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.dot');
+      const container = document.querySelector('.carousel-container');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+  
+      let currentIndex = 0;
+  
+      function goToSlide(index) {
+        currentIndex = index;
+        container.style.transform = `translateX(-${index * 100}vw)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
+  
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        goToSlide(currentIndex);
+      });
+  
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        goToSlide(currentIndex);
+      });
+  
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goToSlide(parseInt(dot.dataset.index));
+        });
+      });
+  
+      // Tự động chuyển slide
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        goToSlide(currentIndex);
+      }, 5000); // mỗi 5 giây
+    });
+  </script>
+  
+  
+  <!--ảnh nền-->
+  <section class="underweb">
+    <div class="underweb-wrapper">
+      <img src="assets/banner-danh-muc-dao-tao.webp" alt="Banner Đào Tạo">
+    </div>
+  </section>
+  
+  
+  <style>
+ .underweb {
+  background-color: #f2f6fa; /* nền xám nhạt */
+  padding: 0;
+  margin: 0;
+}
+
+.underweb-wrapper {
+  width: 100vw;
+  margin: 0 auto;
+  overflow: hidden;
+  border: none;
+}
+
+.underweb-wrapper img {
+  width: 100%;
+  transform: scale(0.7); /* 70% kích thước */
+  transform-origin: center;
+}
+
+
+  </style>
+
+<!--Các dự án-->
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .npo-section {
+      background-color: #005A99;
+      padding: 60px 20px;
+    }
+
+    .npo-section h2 {
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .npo-section p.section-desc {
+      color: #fff;
+      text-align: center;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 50px;
+    }
+
+    .npo-box {
+      background: #fff;
+      margin: 0 auto 30px auto;
+      max-width: 960px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid #ddd;
+      border-radius: 0; /* Góc vuông */
+    }
+
+    .logo-container {
+      flex: 1 1 250px;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      border-bottom: 6px solid #CBB64B;
+      overflow: hidden;
+    }
+
+    .logo-container img {
+      max-width: 100%;
+      height: auto;
+      transform: scale(1.3); /* 70% kích thước */
+      transition: transform 0.4s ease;
+    }
+
+    .logo-container:hover img {
+      transform: scale(1.05); /* Zoom in */
+    }
+
+    .content-container {
+      flex: 2 1 400px;
+      padding: 30px;
+    }
+
+    .content-container h5 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .content-container p {
+      margin: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .npo-box {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="npo-section">
+  <div class="container">
+    <h2>CÁC TỔ CHỨC GIÁO DỤC<br>PHI LỢI NHUẬN CỦA PACE</h2>
+    <p class="section-desc">
+      Song hành với các hoạt động nói trên, PACE còn có PACE NPO / Tổ chức phi lợi nhuận<br>
+      với các sáng kiến giáo dục khai phóng có ý nghĩa được triển khai liên tục kể từ năm 2007 tới nay<br>
+      để góp phần hiện thực hóa sứ mệnh của mình một cách tổng thể, đa chiều và đầy đủ nhất.
+    </p>
+
+    <!-- Tổ chức 1 -->
+    <div class="npo-box">
+      <div class="logo-container">
+        <img src="assets/Thiết kế chưa có tên.jpg" alt="IPL Scholarship">
+      </div>
+      <div class="content-container">
+        <h5><span>Dự Án: Khu Du Lịch Happy Land</span> </h5>
+        <p>
+            <span>Ban Giảng Huấn</span> Mentoring & Coaching
+        </p>
+        <p>
+            <span>Đối Tượng:</span> Đội Ngũ Sale & Marketing
+          </p>
+          <p>
+            <span>Thời gian:</span> 2020 - 2022
+          </p>
+      </div>
+    </div>
+
+    <!-- Tổ chức 2 -->
+    <div class="npo-box">
+      <div class="logo-container">
+        <img src="https://www.pace.edu.vn/uploads/partners/NPO/Logo_OpenEdu.webp" alt="OpenEdu Initiative">
+      </div>
+      <div class="content-container">
+        <h5>OpenEdu Initiative</h5>
+        <p>
+          Sáng kiến OpenEdu là “ngôi trường khai phóng trực tuyến” đầu tiên của Việt Nam, với tinh hoa tri thức toàn cầu, nhưng được chuyển ngữ thành tiếng Việt và hoàn toàn miễn phí. OpenEdu được sáng lập bởi PACE và được điều hành bởi IPL Scholarship.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  <!--Members-->
+  
+  <section class="partner">
+    <h2>MENTORS/COACHES</h2>
+    <p class="subtext">
+      Những bậc thầy của kinh thương toàn cầu đã đến Việt Nam theo lời mời của MSC<br>
+      để đồng hành cùng doanh giới trên hành trình cùng khai mở một nền quản trị mới tại Việt Nam.
+    </p>
+    <!---->
+    <div class="partner-grid">
+      <div class="partner-item">
+        <img src="assets/members/PHAvuong.jpg" alt="Michael Porter">
+        <h4>Hoàng Cửu Long</h4>
+        <p>“Cha đẻ” chiến lược cạnh tranh</p>
+      </div>
+      <!---->
+      <div class="partner-item">
+        <img src="assets/members/PHAvuong.jpg" alt="Philip Kotler">
+        <h4>Phan Huỳnh Anh</h4>
+        <p>“Cha đẻ” Marketing hiện đại</p>
+      </div>
+      <!---->
+      <div class="partner-item">
+        <img src="assets/members/PHAvuong.jpg" alt="Philip Kotler">
+        <h4>Đoàn Đức Minh</h4>
+        <p>“Chủ nhân” Nobel kinh tế</p>
+      </div>
+      <!---->
+      
+    </div>
+  </section>
+  
+  <script src="js/script.js"></script>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="assets/logo/logo.png" alt="PACE Logo" class="footer-logo" />
+        <p class="footer-sub">279 Nguyễn Tri Phương, Quận 10, TP.Hồ Chí Minh</p>
+        <p class="footer-sub">Điện Thoại: (+84) 329 381 489</p>
+        <p class="footer-sub">Email: info@msc.edu.vn</p>
+        <p class="footer-sub">© 2025 MSC Center. Phát triển bởi Phòng Công nghệ thông tin</p>
+      </div>
+  
+      <div class="footer-col">
+        <h4>Kết nối với chúng tôi</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/msc.edu.vn"><img src="assets/logo/fb.png" alt="Facebook" /></a>
+          <a href="#"><img src="assets/logo/ytb copy.png" alt="YouTube" /></a>
+          <a href="https://zalo.me/g/acumou501"><img src="assets/logo/zalo.webp" alt="Yputebe" /></a>
+        </div>
+  
+        <!-- Fanpage Facebook -->
+        <div class="fb-page"
+          data-href="https://www.facebook.com/msc.edu.vn"
+          data-tabs="timeline"
+          data-width="300"
+          data-height="130"
+          data-small-header="false"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/msc.edu.vn" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/msc.edu.vn">MSC Việt Nam</a>
+          </blockquote>
+        </div>
+      </div>
+  
+      <div class="footer-col">
+        <h4>Đăng ký nhận tin tức mới nhất từ PACE</h4>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Email của bạn" required />
+          <button type="submit">
+            <img src="assets/logo/logo.png" alt="Gửi" />
+          </button>
+        </form>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- SDK Facebook -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v22.0"
+    nonce="abc123"></script>
+  
+  <style>
+    
+    .fb-page {
+      margin-top: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+  
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+  
+      .footer-col {
+        margin-bottom: 20px;
+      }
+  
+      .subscribe-form {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>
